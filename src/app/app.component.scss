@@ -1,0 +1,26 @@
+.ml-auto {
+  margin-left: auto !important
+}
+
+@media only screen and (max-width: 320px) {
+  .im {
+    margin-right: auto !important
+  }
+
+}
+
+@media only screen and (max-width: 375px) and (min-width: 320px) {
+  .btmv {
+    font-size: 15px;
+  }
+
+
+}
+
+// @media only screen and (max-width: 320px) {
+
+//   .butmv {
+//     margin-bottom: auto !important
+//   }
+
+// }

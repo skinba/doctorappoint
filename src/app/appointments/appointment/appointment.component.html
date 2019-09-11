@@ -1,0 +1,95 @@
+<div class="container">
+
+  <div class="card mt-2">
+    <div class="row">
+      <div class="col-xl-10 col-lg-10 col-md-9 col-sm-8 col-7"></div>
+      <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-5 mobview">
+        <button class="btn btn-dark mt-2 mb-2" style="font-size: 11px" [routerLink]="['/add']">
+          NewToken &nbsp;
+          <i class=" fa fa-plus-circle " style="font-size: 14px;"></i>
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <table class="table table-responsive-sm mv">
+          <thead>
+            <tr style="text-align: center">
+              <th>Token</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Name</th>
+              <th>Phone no</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let appointment of addUserArray" style="text-align: center">
+              <th>{{ appointment.tokenno }}</th>
+              <td>{{ appointment.date }}</td>
+              <td>{{ appointment.time }}</td>
+              <td>{{ appointment.name }}</td>
+              <td>{{ appointment.phoneno }}</td>
+              <td style="display: inline-flex;">
+                <button class="btn btn-outline-info " style="font-size: 6px" data-toggle="modal"
+                  data-target="#myModalUpdate" (click)="getId(appointment._id)">
+                  <i class="fa fa-check-circle " style="font-size:15px;"></i></button>&nbsp;
+                <button class="btn btn-outline-primary " style="font-size: 6px" routerLink="/add/{{ appointment._id }}">
+                  <i class="fa fa-edit" style="font-size:15px"></i></button>&nbsp;
+                <button class="btn btn-outline-danger" style="font-size: 6px" data-toggle="modal"
+                  data-target="#myModalDelete" (click)="getId(appointment._id)">
+                  <i class="fa fa-trash mr " style="font-size:15px"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+  <!-- //modal 1 -->
+  <div class="modal fade" id="myModalDelete" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" style="text-align: center">Are You Sure to Delete?</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            &times;
+          </button>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline-dark mr-4" style="border-radius: 13px" data-dismiss="modal">
+            Cancel
+          </button>
+          <button class="btn btn-outline-info" style="border-radius: 13px" data-dismiss="modal" (click)="deleteUser()">
+            Ok
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- modal 2 -->
+  <div class="modal fade" id="myModalUpdate" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" style="text-align: center">Are You Sure to Reject?</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            &times;
+          </button>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline-dark mr-4" style="border-radius: 13px" data-dismiss="modal">
+            Cancel
+          </button>
+          <button class="btn btn-outline-info" style="border-radius: 13px" data-dismiss="modal"
+            (click)="addUpdateUser()">
+            Ok
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
