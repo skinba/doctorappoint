@@ -1,19 +1,63 @@
-<div style="background-color: #0F7799">
+<nav class="navbar navbar-expand-md navbar-dark" style="background-color: #0F7799 ">
+  <a class="navbar-brand ap" href="#">Appointment App</a>
+  <button class="btn navbar-toggler ap" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExample04">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item ">
+        <a class="nav-link" style="font-weight: 500" *ngIf ="appointmentservice.loggedIn()" [routerLink]="['/appointment']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Appointments</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" style="font-weight: 500" *ngIf ="!appointmentservice.loggedIn()"  routerLink= "/login"routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " style="font-weight: 500" *ngIf ="appointmentservice.loggedIn()" (click)="appointmentservice.logOut()" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Logout</a>
+      </li>
+      
+    </ul>
+  </div>
+</nav>
+
+<!-- <div style="background-color: #0F7799">
   <nav class="navbar  navbar-fixed-top navbar-dark ">
     <a class="navbar-brand" href="#">Appointment App</a>
-    <ul class="nav navbar-nav ml-auto im ">
-      <li class="nav-item ">
-        <a class="nav-link" style="font-weight: bold;font-family: Allerta Stencil, Sans-serif; font-size: 16px;"
-          [routerLink]="['/appointment']">Appointments&nbsp;&nbsp;&nbsp;&nbsp;</a>
+    <ul class="nav navbar-nav mleft">
+        
+      <li class="nav-item  " >
+        <a class="nav-link dli" *ngIf ="appointmentservice.loggedIn()  "style=" display: initial;font-weight: bold;font-family: Allerta Stencil, Sans-serif; font-size: 16px;"
+          [routerLink]="['/appointment']" >Appointments&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+          <a class="nav-link dli" *ngIf ="!appointmentservice.loggedIn()" style=" display: initial;font-weight: bold;font-family: Allerta Stencil, Sans-serif; font-size: 16px;"
+          routerLink= "/login">Login&nbsp;&nbsp;&nbsp;&nbsp;</a> 
+          <a class="nav-link dli" *ngIf ="appointmentservice.loggedIn()" style=" display: initial;font-weight: bold;font-family: Allerta Stencil, Sans-serif; font-size: 16px;"
+            (click)="appointmentservice.logOut()"  [routerLink]="['/']" >Logout&nbsp;&nbsp;&nbsp;&nbsp;</a> 
+      </li> -->
+      <!-- <li class="nav-item " *ngIf ="!appointmentservice.loggedIn()" >
+          
       </li>
+      <li class="nav-item " *ngIf ="appointmentservice.loggedIn()" >
+        
+      </li> -->
 
-    </ul>
-    <button class="btn btn-outline-info navbar-toggler btmv" type="button" data-toggle="collapse"
-      data-target="#navbarsExample01" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <!-- </ul> -->
+
+    <!-- <div class="dropdown dropdown-toggle" style="color: white"  data-toggle="dropdown">
+      
+      <div *ngIf ="appointmentservice.loggedIn()" class="dropdown-menu" >
+        <a class="dropdown-item" (click)="appointmentservice.logOut()"  [routerLink]="['/']">Logout</a>
+      </div>
+    </div> -->
+
+    
+    <!-- <button class="btn btn-outline-info navbar-toggler btmv dn" type="button" data-toggle="collapse"
+      data-target="#show" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon">
+      </span>
     </button>
+    
   </nav>
-</div>
+</div> -->
 
 
 

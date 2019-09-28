@@ -9,6 +9,7 @@ import { NgxSpinnerService } from "ngx-spinner";
   styleUrls: ["./appointment.component.scss"]
 })
 export class AppointmentComponent implements OnInit {
+
   addUserArray: any = [];
   addAllUserArray: any = [];
   id: any;
@@ -16,6 +17,7 @@ export class AppointmentComponent implements OnInit {
   tokenno: any;
   deleteUserUpdate: any = {};
   updateUser: any = {};
+  deletedArray: any = []
 
   constructor(
     private spinner: NgxSpinnerService,
@@ -34,8 +36,10 @@ export class AppointmentComponent implements OnInit {
       let j = 0;
       this.addAllUserArray = data;
       console.log(this.addAllUserArray);
-      for (let i = 0; i < this.addAllUserArray.length; i++) {
-        if (this.addAllUserArray[i].status == "Created") {
+      for (let i = 0; i < this.addAllUserArray.length; i++) 
+      {
+        if (this.addAllUserArray[i].status == "Created") 
+        {
           this.addUserArray[j] = this.addAllUserArray[i];
           j++;
         }
@@ -47,6 +51,7 @@ export class AppointmentComponent implements OnInit {
     });
   }
 
+  
   // getOneUser() {
   //   this.appointmentService.getOneAppointment(this.id).subscribe(data => {
   //     this.addUserArray = data;
@@ -65,32 +70,33 @@ export class AppointmentComponent implements OnInit {
     //     console.log(data);
     //     this.getUser();
     //   });
-    this.spinner.show();
+    
     this.deleteUserUpdate.status = "Deleted";
     console.log(this.id);
     this.appointmentService
       .updatAppointment(this.id, this.deleteUserUpdate)
       .subscribe(data => {
         console.log(data);
-        setTimeout(() => {
-          this.spinner.hide();
-        }, 1500);
-      });
-    this.getUser();
+        this.router.navigateByUrl('/dummy', { skipLocationChange: true });
+        setTimeout(() => this.router.navigate(['/appointment']), 0);
+     });
+     
   }
 
   addUpdateUser() {
-    this.spinner.show();
     this.updateUser.status = "Updated";
     console.log(this.id);
     this.appointmentService
       .updatAppointment(this.id, this.updateUser)
       .subscribe(data => {
         console.log(data);
-        setTimeout(() => {
-          this.spinner.hide();
-        }, 1500);
-        this.getUser();
-      });
+        this.router.navigateByUrl('/dummy', { skipLocationChange: true });
+        setTimeout(() => this.router.navigate(['/appointment']), 0);    
+       });
+      
   }
+
+  
+
+  
 }

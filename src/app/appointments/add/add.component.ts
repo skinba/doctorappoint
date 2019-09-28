@@ -16,6 +16,7 @@ export class AddComponent implements OnInit {
   tokenArray: any = [];
   getToken: any;
   tokenData: any = {};
+  first: any = [];
   token: any;
   time: any;
   timeArray: any = [];
@@ -73,6 +74,7 @@ export class AddComponent implements OnInit {
       );
     }
   }
+
 
   gettUser() {
     this.appointmentService.getToken().subscribe(data => {
