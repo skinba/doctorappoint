@@ -4,7 +4,7 @@ import { Appointment } from "../models/appointment";
 import { Observable } from "rxjs";
 import { Token } from '@angular/compiler/src/ml_parser/lexer';
 
-const BASE_URL = "http://localhost:3000/api";
+const BASE_URL = "https://appointmentbackend.herokuapp.com/api";
 @Injectable({
   providedIn: "root"
 })
